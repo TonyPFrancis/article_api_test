@@ -23,7 +23,13 @@ jobs:
           command: |
             . venv/bin/activate
             python3 setup.py sdist bdist_wheel
-
+            ls
+      - run:
+          # test package
+          name: test module
+          command: |
+            . venv/bin/activate
+            ls
 
 #  test_pypi_publish:
 #    docker:
