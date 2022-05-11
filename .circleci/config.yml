@@ -13,9 +13,6 @@ jobs:
             . venv/bin/activate
             pip install -r requirements_dev.txt
             python3 -m pytest tests/
-#            pip install dist/article_api_test-1.0.0-py3-none-any.whl
-#            pip install pytest
-#            pip freeze
 #            article-api --url="https://www.bbc.com/news/science-environment-61383391"
       - run:
           # build package
@@ -29,7 +26,8 @@ jobs:
           name: test module
           command: |
             . venv/bin/activate
-            ls
+            pip install dist/article_api_test-1.0.0-py3-none-any.whl
+            pip freeze
 
 #  test_pypi_publish:
 #    docker:
