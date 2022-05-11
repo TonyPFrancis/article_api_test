@@ -6,19 +6,24 @@ jobs:
     steps:
       - checkout  # checkout source code to working directory
       - run:
-          name: test package
-          command: |  # create whl and use pipenv to install dependencies
+          # run pytest
+          name: pytest
+          command: |  
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements_dev.txt
             python3 -m pytest tests/
-#            python3 setup.py sdist bdist_wheel
 #            pip install dist/article_api_test-1.0.0-py3-none-any.whl
 #            pip install pytest
 #            pip freeze
 #            article-api --url="https://www.bbc.com/news/science-environment-61383391"
-#      - run:
-#          command: |  # Run test suite
+      - run:
+          # build package
+          name: build module
+          command: |
+            . venv/bin/activate
+            python3 setup.py sdist bdist_wheel
+
 
 #  test_pypi_publish:
 #    docker:
