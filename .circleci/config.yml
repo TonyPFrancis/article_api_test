@@ -7,14 +7,17 @@ jobs:
       - checkout  # checkout source code to working directory
       - run:
           command: |  # create whl and use pipenv to install dependencies
-            python setup.py sdist bdist_wheel
             python3 -m venv venv
             . venv/bin/activate
-            pip install dist/article_api_test-1.0.0-py3-none-any.whl
             pip install pytest
-      - run:
-          command: |  # Run test suite
             python3 -m pytest tests/
+            python setup.py sdist bdist_wheel
+            pip install dist/article_api_test-1.0.0-py3-none-any.whl
+            article-api --url="https://www.bbc.com/news/science-environment-61383391"
+
+#      - run:
+#          command: |  # Run test suite
+
 #  test_pypi_publish:
 #    docker:
 #      - image: circleci/python:3.8
