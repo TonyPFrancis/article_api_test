@@ -10,12 +10,12 @@ jobs:
           command: |  # create whl and use pipenv to install dependencies
             python3 -m venv venv
             . venv/bin/activate
-            pip install wheel
-            python3 setup.py sdist bdist_wheel
-            pip install dist/article_api_test-1.0.0-py3-none-any.whl
-            pip install pytest
+            pip install -r requirements_dev.txt
             python3 -m pytest tests/
-            pip freeze
+#            python3 setup.py sdist bdist_wheel
+#            pip install dist/article_api_test-1.0.0-py3-none-any.whl
+#            pip install pytest
+#            pip freeze
 #            article-api --url="https://www.bbc.com/news/science-environment-61383391"
 #      - run:
 #          command: |  # Run test suite

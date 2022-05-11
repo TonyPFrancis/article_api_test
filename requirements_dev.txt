@@ -1,0 +1,5 @@
+jmespath==1.0.0
+lxml==4.8.0
+pytest
+requests==2.27.1
+wheel
