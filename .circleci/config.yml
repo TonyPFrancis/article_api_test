@@ -14,7 +14,7 @@ jobs:
             pip install dist/article_api_test-1.0.0-py3-none-any.whl
             pip install pytest
             python3 -m pytest tests/
-            article-api --url="https://www.bbc.com/news/science-environment-61383391"
+#            article-api --url="https://www.bbc.com/news/science-environment-61383391"
 #      - run:
 #          command: |  # Run test suite
 
