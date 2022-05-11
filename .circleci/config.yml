@@ -27,11 +27,15 @@ jobs:
             . venv/bin/activate
             pip install dist/article_api_test-1.0.0-py3-none-any.whl
 #            article-api --url "https://www.bbc.com/news/science-environment-61383391"
-      - run:
-          # publish to internal pypi
-          name: publish to internal pypi
-          command: |
-            . venv/bin/activate
-            set -x
-            aws s3 sync dist/ s3://pkgrepo.scrapinghub.com/python/packages/
+      - when:
+          condition:
+            equal: [ "master", << pipeline.git.branch >> ]
+          steps:
+            - run:
+                # publish to internal pypi
+                name: publish to internal pypi
+                command: |
+                  . venv/bin/activate
+                  set -x
+                  aws s3 sync dist/ s3://pkgrepo.scrapinghub.com/python/packages/
             
