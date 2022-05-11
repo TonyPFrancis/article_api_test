@@ -38,4 +38,8 @@ jobs:
                   . venv/bin/activate
                   set -x
                   aws s3 sync dist/ s3://pkgrepo.scrapinghub.com/python/packages/
-            
+
+workflows:
+  build_test_publish:
+    jobs:
+      - build_test
