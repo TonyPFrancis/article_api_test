@@ -25,7 +25,7 @@ jobs:
           name: test module
           command: |
             . venv/bin/activate
-            pip install dist/article_api_test-1.0.0-py3-none-any.whl
+            pip install dist/article_api_test-1.0.1-py3-none-any.whl
 #            article-api --url "https://www.bbc.com/news/science-environment-61383391"
       - when:
           condition:
